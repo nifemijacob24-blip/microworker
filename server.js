@@ -17,7 +17,7 @@ const proxyAgent = new HttpsProxyAgent(proxyUrl, {
 });
 const app = express();
 app.use(cors({
-    origin: 'https://your-signalqub-domain.vercel.app', // 🛑 Replace with your actual Vercel URL
+    origin: 'https://signalqub-frontend.vercel.app', // <-- Paste your exact Vercel URL here
     methods: ['POST', 'GET']
 }));
 app.use(express.json());
