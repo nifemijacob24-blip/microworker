@@ -97,20 +97,25 @@ app.post('/api/generate-reply', async (req, res) => {
 // ==========================================
 // 2. THE SCRAPER LOOP (Finds Leads)
 // ==========================================
+// ==========================================
+// 2. THE SCRAPER LOOP (Finds Leads)
+// ==========================================
 async function scanReddit() {
     console.log("🔍 [SCRAPER] Scanning Reddit for new leads...");
     
-    // Process in batches so we don't hit Reddit rate limits
-    const BATCH_SIZE = 3; 
+    // 🔥 UPGRADED: Now scanning 5 subreddits simultaneously!
+    const BATCH_SIZE = 5; 
     for (let i = 0; i < subreddits.length; i += BATCH_SIZE) {
         const batch = subreddits.slice(i, i + BATCH_SIZE);
         
         await Promise.all(batch.map(async (sub) => {
             try {
+                console.log(`📡 Scraping r/${sub}...`); 
+
                 const { data } = await axios.get(`https://www.reddit.com/r/${sub}/new.json?limit=5`, { 
-    httpsAgent: proxyAgent,
-    timeout: 15000
-});
+                    httpsAgent: proxyAgent,
+                    timeout: 15000
+                });
                 const posts = data.data.children;
 
                 for (const post of posts) {
