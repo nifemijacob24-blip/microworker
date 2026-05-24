@@ -7,11 +7,14 @@ import 'dotenv/config';
 
 import { HttpsProxyAgent } from 'https-proxy-agent';
 
-// 🛑 ADD THIS LINE TO FIX THE BRIGHT DATA SSL ERROR 🛑
+// 🛑 ADD THIS LINE TO FIX SSL ERRORS 🛑
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-// --- BRIGHT DATA PROXY SETUP ---
-const proxyUrl = `ttp://kGJR8Ao2udyMrYo0:TDAN8BQr26IGMuwG@geo.iproyal.com:51249`;
+// --- PROXY-SELLER SETUP ---
+// Notice the 'http://' at the front. The package requires this!
+const proxyUrl = 'http://a9c1b10088e69061:Wqra64M7heSFjQYT@res.proxy-seller.com:10000';
+
+
 const proxyAgent = new HttpsProxyAgent(proxyUrl, {
     rejectUnauthorized: false 
 });
