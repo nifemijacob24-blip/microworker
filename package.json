@@ -1,0 +1,19 @@
+{
+  "name": "signalqub-backend",
+  "version": "1.0.0",
+  "description": "Microworker distribution engine for SignalQub",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.106.1",
+    "axios": "^1.16.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "https-proxy-agent": "^9.0.0",
+    "openai": "^6.39.0"
+  }
+}
